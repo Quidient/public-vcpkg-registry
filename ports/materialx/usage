@@ -1,0 +1,4 @@
+The package materialx provides CMake targets:
+
+    find_package(MaterialX CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE MaterialXCore MaterialXFormat MaterialXGenMdl MaterialXGenOsl)
