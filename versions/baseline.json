@@ -2,6 +2,6 @@
     "default": {
         "libintegrate": { "baseline": "1.1", "port-version": 2},
         "materialx": { "baseline": "1.38.5", "port-version": 0},
-        "vxl": { "baseline": "3.5.0", "port-version": 5}
+        "vxl": { "baseline": "3.5.0", "port-version": 6}
       }
 }
