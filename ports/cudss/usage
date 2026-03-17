@@ -1,0 +1,4 @@
+cudss provides CMake targets:
+
+    find_package(cudss CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE cudss::cudss)

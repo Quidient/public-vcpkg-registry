@@ -1,0 +1,9 @@
+{
+  "name": "cudss",
+  "version": "0.7.0.20",
+  "port-version": 0,
+  "description": "NVIDIA cuDSS - GPU-accelerated direct sparse solver library",
+  "homepage": "https://developer.nvidia.com/cudss",
+  "license": "LicenseRef-NVIDIA-EULA",
+  "supports": "x64 & (windows | linux)"
+}
