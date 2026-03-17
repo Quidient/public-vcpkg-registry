@@ -6,6 +6,7 @@
   "homepage": "https://github.com/ceres-solver/ceres-solver",
   "license": "Apache-2.0",
   "dependencies": [
+    "abseil",
     "eigen3",
     {
       "name": "glog",
