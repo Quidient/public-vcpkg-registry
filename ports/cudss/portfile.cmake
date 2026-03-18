@@ -56,9 +56,16 @@ else()
 endif()
 
 # Install CMake config files into share/cudss (vcpkg convention)
-# The shipped config uses relative paths from its location to find headers/libs,
-# so it works from share/cudss/ since ../../include and ../../lib resolve correctly.
 file(INSTALL "${CUDSS_ROOT}/lib/cmake/cudss/" DESTINATION "${CURRENT_PACKAGES_DIR}/share/cudss")
+
+# Patch the config to fix relative path resolution for vcpkg layout.
+# The shipped config assumes it lives at lib/cmake/cudss/ and does ../../ to reach lib/.
+# In vcpkg it lives at share/cudss/, so we change ../../ to ../ to reach share/,
+# from which ../include, ../lib, ../bin correctly resolve to the package root's subdirs.
+vcpkg_replace_string("${CURRENT_PACKAGES_DIR}/share/cudss/cudss-config.cmake"
+    [[file(REAL_PATH "../../" _cudss_search_prefix]]
+    [[file(REAL_PATH "../" _cudss_search_prefix]]
+)
 
 # For debug, reuse the release binaries (cuDSS only ships release)
 if(NOT VCPKG_BUILD_TYPE)
