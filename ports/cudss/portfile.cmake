@@ -58,6 +58,11 @@ endif()
 # Install CMake config files into share/cudss (vcpkg convention)
 file(INSTALL "${CUDSS_ROOT}/lib/cmake/cudss/" DESTINATION "${CURRENT_PACKAGES_DIR}/share/cudss")
 
+# Remove static targets file — cuDSS is dynamic-only (ONLY_DYNAMIC_LIBRARY)
+# but the shipped cmake config references libcudss_static.a which doesn't exist.
+file(REMOVE "${CURRENT_PACKAGES_DIR}/share/cudss/cudss-static-targets.cmake")
+file(REMOVE "${CURRENT_PACKAGES_DIR}/share/cudss/cudss-static-targets-release.cmake")
+
 # Patch the config to fix relative path resolution for vcpkg layout.
 # The shipped config assumes it lives at lib/cmake/cudss/ and does ../../ to reach lib/.
 # In vcpkg it lives at share/cudss/, so we change ../../ to ../ to reach share/,
