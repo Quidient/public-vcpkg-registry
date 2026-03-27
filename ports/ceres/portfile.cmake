@@ -4,6 +4,8 @@ vcpkg_from_github(
     REF 084b3e3b835bb13c42c0658f033826ffa8e0f373 # unreleased 2.3.0
     SHA512 4fd0774e9450fba0b25cec92cc69189e041bff3c8a726dd167c765d6a923d2bd6784755c7daedf68726f56a48fac3c9f08a3f63ca8ff77e9b69087d180ea8f7f
     HEAD_REF master
+    PATCHES
+        0001_cmakelists_fixes.patch
 )
 file(REMOVE "${SOURCE_PATH}/cmake/FindGflags.cmake")
 file(REMOVE "${SOURCE_PATH}/cmake/FindGlog.cmake")
